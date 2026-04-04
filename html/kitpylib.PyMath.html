@@ -1,0 +1,708 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>kitpylib.PyMath package &#8212; KitPyLib 0.5.5 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=dd742493"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'kitpylib.PyMath';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="kitpylib.PyModule package" href="kitpylib.PyModule.html" />
+    <link rel="prev" title="kitpylib.PyFile package" href="kitpylib.PyFile.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">KitPyLib 0.5.5 documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="modules.html">KitPyLib</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="kitpylib.html">kitpylib package</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="kitpylib.PyFile.html">kitpylib.PyFile package</a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">kitpylib.PyMath package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="kitpylib.PyModule.html">kitpylib.PyModule package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="kitpylib.PyPlot.html">kitpylib.PyPlot package</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="authors.html">About</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/kitpylib.PyMath.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>kitpylib.PyMath package</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-kitpylib.PyMath">Module contents</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submodules">Submodules</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-kitpylib.PyMath.findroot">kitpylib.PyMath.findroot module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kitpylib.PyMath.findroot.bisection"><code class="docutils literal notranslate"><span class="pre">bisection()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-kitpylib.PyMath.mathfuncs">kitpylib.PyMath.mathfuncs module</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-kitpylib.PyMath.spf1d">kitpylib.PyMath.spf1d module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kitpylib.PyMath.spf1d.PC"><code class="docutils literal notranslate"><span class="pre">PC</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kitpylib.PyMath.spf1d.diff1st"><code class="docutils literal notranslate"><span class="pre">diff1st()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kitpylib.PyMath.spf1d.diff2nd"><code class="docutils literal notranslate"><span class="pre">diff2nd()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-kitpylib.PyMath.spf2d">kitpylib.PyMath.spf2d module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kitpylib.PyMath.spf2d.gaus2d"><code class="docutils literal notranslate"><span class="pre">gaus2d()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kitpylib.PyMath.spf2d.ramp2d"><code class="docutils literal notranslate"><span class="pre">ramp2d()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kitpylib.PyMath.spf2d.rect2d"><code class="docutils literal notranslate"><span class="pre">rect2d()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kitpylib.PyMath.spf2d.sign2d"><code class="docutils literal notranslate"><span class="pre">sign2d()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kitpylib.PyMath.spf2d.sinc2d"><code class="docutils literal notranslate"><span class="pre">sinc2d()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kitpylib.PyMath.spf2d.step2d"><code class="docutils literal notranslate"><span class="pre">step2d()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kitpylib.PyMath.spf2d.tri2d"><code class="docutils literal notranslate"><span class="pre">tri2d()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-kitpylib.PyMath.spf3d">kitpylib.PyMath.spf3d module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kitpylib.PyMath.spf3d.gaus3d"><code class="docutils literal notranslate"><span class="pre">gaus3d()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kitpylib.PyMath.spf3d.ramp3d"><code class="docutils literal notranslate"><span class="pre">ramp3d()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kitpylib.PyMath.spf3d.rect3d"><code class="docutils literal notranslate"><span class="pre">rect3d()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kitpylib.PyMath.spf3d.sign3d"><code class="docutils literal notranslate"><span class="pre">sign3d()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kitpylib.PyMath.spf3d.sinc3d"><code class="docutils literal notranslate"><span class="pre">sinc3d()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kitpylib.PyMath.spf3d.step3d"><code class="docutils literal notranslate"><span class="pre">step3d()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kitpylib.PyMath.spf3d.tri3d"><code class="docutils literal notranslate"><span class="pre">tri3d()</span></code></a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="kitpylib-pymath-package">
+<h1>kitpylib.PyMath package<a class="headerlink" href="#kitpylib-pymath-package" title="Link to this heading">#</a></h1>
+<section id="module-kitpylib.PyMath">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-kitpylib.PyMath" title="Link to this heading">#</a></h2>
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading">#</a></h2>
+</section>
+<section id="module-kitpylib.PyMath.findroot">
+<span id="kitpylib-pymath-findroot-module"></span><h2>kitpylib.PyMath.findroot module<a class="headerlink" href="#module-kitpylib.PyMath.findroot" title="Link to this heading">#</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="kitpylib.PyMath.findroot.bisection">
+<span class="sig-prename descclassname"><span class="pre">kitpylib.PyMath.findroot.</span></span><span class="sig-name descname"><span class="pre">bisection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">e</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">showtimes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/kitpylib/PyMath/findroot.html#bisection"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kitpylib.PyMath.findroot.bisection" title="Link to this definition">#</a></dt>
+<dd><section id="bisection">
+<h3>BISECTION<a class="headerlink" href="#bisection" title="Link to this heading">#</a></h3>
+<p>A function to find roots of <cite>f(x)=0</cite> by bisection method. 
+<cite>f(a)</cite> and <cite>f(b)</cite> cannot have the same signs.</p>
+<section id="parameters">
+<h4>Parameters<a class="headerlink" href="#parameters" title="Link to this heading">#</a></h4>
+<dl class="simple">
+<dt>f<span class="classifier">func </span></dt><dd><p><cite>f</cite> must be continuous. Python function returning a number.</p>
+</dd>
+<dt>a<span class="classifier">float</span></dt><dd><p>Start of the bracketing interval [a,b].</p>
+</dd>
+<dt>b<span class="classifier">float</span></dt><dd><p>End of the bracketing interval [a,b].</p>
+</dd>
+<dt>e<span class="classifier">float</span></dt><dd><p>Accuracy</p>
+</dd>
+<dt>showtimes<span class="classifier">bool. The default is False.</span></dt><dd><p>Show how many times the calculator use to find the root.</p>
+</dd>
+</dl>
+</section>
+<section id="returns">
+<h4>Returns<a class="headerlink" href="#returns" title="Link to this heading">#</a></h4>
+<dl class="simple">
+<dt>iterations:</dt><dd><p>Returns if <cite>showtimes</cite> is True.</p>
+</dd>
+<dt>root<span class="classifier">float</span></dt><dd><p>Root of <cite>f</cite> between <cite>a</cite> and <cite>b</cite>.</p>
+</dd>
+</dl>
+</section>
+<section id="examples">
+<h4>Examples<a class="headerlink" href="#examples" title="Link to this heading">#</a></h4>
+<p>Precise value:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="o">-</span><span class="mi">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">root</span> <span class="o">=</span> <span class="n">bisection</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">root</span>
+<span class="go">1.0</span>
+</pre></div>
+</div>
+<p>Errors:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">root</span> <span class="o">=</span> <span class="n">bisection</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">)</span>
+<span class="go">ValueError: Incorrect input!</span>
+</pre></div>
+</div>
+<p>Approximate value:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">g</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="o">-</span><span class="n">x</span><span class="o">**</span><span class="mi">3</span><span class="o">-</span><span class="mi">3</span><span class="o">*</span><span class="n">x</span><span class="o">+</span><span class="mi">5</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">root</span> <span class="o">=</span> <span class="n">bisection</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">root</span>
+<span class="go">1.1484375</span>
+</pre></div>
+</div>
+<p><cite>showtimes</cite> is True:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">bisection</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">,</span> <span class="n">showtimes</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="go">Finding root in 7 times.</span>
+<span class="go">1.1484375</span>
+</pre></div>
+</div>
+</section>
+</section>
+</dd></dl>
+
+</section>
+<section id="module-kitpylib.PyMath.mathfuncs">
+<span id="kitpylib-pymath-mathfuncs-module"></span><h2>kitpylib.PyMath.mathfuncs module<a class="headerlink" href="#module-kitpylib.PyMath.mathfuncs" title="Link to this heading">#</a></h2>
+</section>
+<section id="module-kitpylib.PyMath.spf1d">
+<span id="kitpylib-pymath-spf1d-module"></span><h2>kitpylib.PyMath.spf1d module<a class="headerlink" href="#module-kitpylib.PyMath.spf1d" title="Link to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="kitpylib.PyMath.spf1d.PC">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">kitpylib.PyMath.spf1d.</span></span><span class="sig-name descname"><span class="pre">PC</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">px1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">py1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/kitpylib/PyMath/spf1d.html#PC"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kitpylib.PyMath.spf1d.PC" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>==
+This is a class of the calculation of pedal curves.</p>
+<section id="id1">
+<h3>Parameters<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<p>f(function), px1, py1(x, y of the point)</p>
+</section>
+<section id="id2">
+<h3>Returns<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<p>a, b: x, y of the function</p>
+<p>x, y: x, y of pedal curves</p>
+</section>
+<section id="example">
+<h3>Example<a class="headerlink" href="#example" title="Link to this heading">#</a></h3>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="o">-</span><span class="mi">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">PC</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="o">.</span><span class="n">a</span>
+<span class="go">array([-5.       , -4.9989999, -4.9979998, ...,  4.9979998,  4.9989999,</span>
+<span class="go">        5.       ])</span>
+</pre></div>
+</div>
+</section>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="kitpylib.PyMath.spf1d.diff1st">
+<span class="sig-prename descclassname"><span class="pre">kitpylib.PyMath.spf1d.</span></span><span class="sig-name descname"><span class="pre">diff1st</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.01</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/kitpylib/PyMath/spf1d.html#diff1st"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kitpylib.PyMath.spf1d.diff1st" title="Link to this definition">#</a></dt>
+<dd><p>This is the 1st order derivative of a function.</p>
+<div class="math notranslate nohighlight">
+\[f'(x)=(f(x + h) - f(x - h))/(2*h)\]</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="kitpylib.PyMath.spf1d.diff2nd">
+<span class="sig-prename descclassname"><span class="pre">kitpylib.PyMath.spf1d.</span></span><span class="sig-name descname"><span class="pre">diff2nd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.01</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/kitpylib/PyMath/spf1d.html#diff2nd"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kitpylib.PyMath.spf1d.diff2nd" title="Link to this definition">#</a></dt>
+<dd><p>This is the 2nd order derivative of a function.</p>
+<div class="math notranslate nohighlight">
+\[f''(x)=(f(x-h)-2*f(x)+f(x+h))/(h*h)\]</div>
+</dd></dl>
+
+</section>
+<section id="module-kitpylib.PyMath.spf2d">
+<span id="kitpylib-pymath-spf2d-module"></span><h2>kitpylib.PyMath.spf2d module<a class="headerlink" href="#module-kitpylib.PyMath.spf2d" title="Link to this heading">#</a></h2>
+<p>A module for 2d special functions.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="kitpylib.PyMath.spf2d.gaus2d">
+<span class="sig-prename descclassname"><span class="pre">kitpylib.PyMath.spf2d.</span></span><span class="sig-name descname"><span class="pre">gaus2d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/kitpylib/PyMath/spf2d.html#gaus2d"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kitpylib.PyMath.spf2d.gaus2d" title="Link to this definition">#</a></dt>
+<dd><p>The 2d Gaussian Function.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="kitpylib.PyMath.spf2d.ramp2d">
+<span class="sig-prename descclassname"><span class="pre">kitpylib.PyMath.spf2d.</span></span><span class="sig-name descname"><span class="pre">ramp2d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/kitpylib/PyMath/spf2d.html#ramp2d"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kitpylib.PyMath.spf2d.ramp2d" title="Link to this definition">#</a></dt>
+<dd><p>The 2d ramp function.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="kitpylib.PyMath.spf2d.rect2d">
+<span class="sig-prename descclassname"><span class="pre">kitpylib.PyMath.spf2d.</span></span><span class="sig-name descname"><span class="pre">rect2d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/kitpylib/PyMath/spf2d.html#rect2d"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kitpylib.PyMath.spf2d.rect2d" title="Link to this definition">#</a></dt>
+<dd><p>The 2d rectangle function.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="kitpylib.PyMath.spf2d.sign2d">
+<span class="sig-prename descclassname"><span class="pre">kitpylib.PyMath.spf2d.</span></span><span class="sig-name descname"><span class="pre">sign2d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/kitpylib/PyMath/spf2d.html#sign2d"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kitpylib.PyMath.spf2d.sign2d" title="Link to this definition">#</a></dt>
+<dd><p>The 2d sign function.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="kitpylib.PyMath.spf2d.sinc2d">
+<span class="sig-prename descclassname"><span class="pre">kitpylib.PyMath.spf2d.</span></span><span class="sig-name descname"><span class="pre">sinc2d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/kitpylib/PyMath/spf2d.html#sinc2d"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kitpylib.PyMath.spf2d.sinc2d" title="Link to this definition">#</a></dt>
+<dd><p>The 2d sinc function.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="kitpylib.PyMath.spf2d.step2d">
+<span class="sig-prename descclassname"><span class="pre">kitpylib.PyMath.spf2d.</span></span><span class="sig-name descname"><span class="pre">step2d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/kitpylib/PyMath/spf2d.html#step2d"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kitpylib.PyMath.spf2d.step2d" title="Link to this definition">#</a></dt>
+<dd><p>The 2d step function.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="kitpylib.PyMath.spf2d.tri2d">
+<span class="sig-prename descclassname"><span class="pre">kitpylib.PyMath.spf2d.</span></span><span class="sig-name descname"><span class="pre">tri2d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/kitpylib/PyMath/spf2d.html#tri2d"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kitpylib.PyMath.spf2d.tri2d" title="Link to this definition">#</a></dt>
+<dd><p>The 2d triangle function.</p>
+</dd></dl>
+
+</section>
+<section id="module-kitpylib.PyMath.spf3d">
+<span id="kitpylib-pymath-spf3d-module"></span><h2>kitpylib.PyMath.spf3d module<a class="headerlink" href="#module-kitpylib.PyMath.spf3d" title="Link to this heading">#</a></h2>
+<p>A module for 3d special functions.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="kitpylib.PyMath.spf3d.gaus3d">
+<span class="sig-prename descclassname"><span class="pre">kitpylib.PyMath.spf3d.</span></span><span class="sig-name descname"><span class="pre">gaus3d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/kitpylib/PyMath/spf3d.html#gaus3d"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kitpylib.PyMath.spf3d.gaus3d" title="Link to this definition">#</a></dt>
+<dd><p>The 3d Gaussian Function.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="kitpylib.PyMath.spf3d.ramp3d">
+<span class="sig-prename descclassname"><span class="pre">kitpylib.PyMath.spf3d.</span></span><span class="sig-name descname"><span class="pre">ramp3d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/kitpylib/PyMath/spf3d.html#ramp3d"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kitpylib.PyMath.spf3d.ramp3d" title="Link to this definition">#</a></dt>
+<dd><p>The 3d ramp function.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="kitpylib.PyMath.spf3d.rect3d">
+<span class="sig-prename descclassname"><span class="pre">kitpylib.PyMath.spf3d.</span></span><span class="sig-name descname"><span class="pre">rect3d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/kitpylib/PyMath/spf3d.html#rect3d"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kitpylib.PyMath.spf3d.rect3d" title="Link to this definition">#</a></dt>
+<dd><p>The 3d rectangle function.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="kitpylib.PyMath.spf3d.sign3d">
+<span class="sig-prename descclassname"><span class="pre">kitpylib.PyMath.spf3d.</span></span><span class="sig-name descname"><span class="pre">sign3d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/kitpylib/PyMath/spf3d.html#sign3d"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kitpylib.PyMath.spf3d.sign3d" title="Link to this definition">#</a></dt>
+<dd><p>The 3d sign function.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="kitpylib.PyMath.spf3d.sinc3d">
+<span class="sig-prename descclassname"><span class="pre">kitpylib.PyMath.spf3d.</span></span><span class="sig-name descname"><span class="pre">sinc3d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/kitpylib/PyMath/spf3d.html#sinc3d"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kitpylib.PyMath.spf3d.sinc3d" title="Link to this definition">#</a></dt>
+<dd><p>The 3d sinc function.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="kitpylib.PyMath.spf3d.step3d">
+<span class="sig-prename descclassname"><span class="pre">kitpylib.PyMath.spf3d.</span></span><span class="sig-name descname"><span class="pre">step3d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/kitpylib/PyMath/spf3d.html#step3d"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kitpylib.PyMath.spf3d.step3d" title="Link to this definition">#</a></dt>
+<dd><p>The 3d step function.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="kitpylib.PyMath.spf3d.tri3d">
+<span class="sig-prename descclassname"><span class="pre">kitpylib.PyMath.spf3d.</span></span><span class="sig-name descname"><span class="pre">tri3d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/kitpylib/PyMath/spf3d.html#tri3d"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kitpylib.PyMath.spf3d.tri3d" title="Link to this definition">#</a></dt>
+<dd><p>The 3d triangle function.</p>
+</dd></dl>
+
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="kitpylib.PyFile.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">kitpylib.PyFile package</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="kitpylib.PyModule.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">kitpylib.PyModule package</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-kitpylib.PyMath">Module contents</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submodules">Submodules</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-kitpylib.PyMath.findroot">kitpylib.PyMath.findroot module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kitpylib.PyMath.findroot.bisection"><code class="docutils literal notranslate"><span class="pre">bisection()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-kitpylib.PyMath.mathfuncs">kitpylib.PyMath.mathfuncs module</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-kitpylib.PyMath.spf1d">kitpylib.PyMath.spf1d module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kitpylib.PyMath.spf1d.PC"><code class="docutils literal notranslate"><span class="pre">PC</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kitpylib.PyMath.spf1d.diff1st"><code class="docutils literal notranslate"><span class="pre">diff1st()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kitpylib.PyMath.spf1d.diff2nd"><code class="docutils literal notranslate"><span class="pre">diff2nd()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-kitpylib.PyMath.spf2d">kitpylib.PyMath.spf2d module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kitpylib.PyMath.spf2d.gaus2d"><code class="docutils literal notranslate"><span class="pre">gaus2d()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kitpylib.PyMath.spf2d.ramp2d"><code class="docutils literal notranslate"><span class="pre">ramp2d()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kitpylib.PyMath.spf2d.rect2d"><code class="docutils literal notranslate"><span class="pre">rect2d()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kitpylib.PyMath.spf2d.sign2d"><code class="docutils literal notranslate"><span class="pre">sign2d()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kitpylib.PyMath.spf2d.sinc2d"><code class="docutils literal notranslate"><span class="pre">sinc2d()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kitpylib.PyMath.spf2d.step2d"><code class="docutils literal notranslate"><span class="pre">step2d()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kitpylib.PyMath.spf2d.tri2d"><code class="docutils literal notranslate"><span class="pre">tri2d()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-kitpylib.PyMath.spf3d">kitpylib.PyMath.spf3d module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kitpylib.PyMath.spf3d.gaus3d"><code class="docutils literal notranslate"><span class="pre">gaus3d()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kitpylib.PyMath.spf3d.ramp3d"><code class="docutils literal notranslate"><span class="pre">ramp3d()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kitpylib.PyMath.spf3d.rect3d"><code class="docutils literal notranslate"><span class="pre">rect3d()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kitpylib.PyMath.spf3d.sign3d"><code class="docutils literal notranslate"><span class="pre">sign3d()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kitpylib.PyMath.spf3d.sinc3d"><code class="docutils literal notranslate"><span class="pre">sinc3d()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kitpylib.PyMath.spf3d.step3d"><code class="docutils literal notranslate"><span class="pre">step3d()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kitpylib.PyMath.spf3d.tri3d"><code class="docutils literal notranslate"><span class="pre">tri3d()</span></code></a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By S_My & KitPyLib Developers
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025~2026, S_My &amp; KitPyLib Developers.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
