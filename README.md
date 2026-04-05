@@ -1,4 +1,4 @@
-# kpl
+# kpl-doc
 KitPyLib's Documentation
 
 ## How to use
